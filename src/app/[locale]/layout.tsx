@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
-import { loading } from './loading'
+import Loading from './loading'
 import { LocaleLayout } from '@/components/layout/locale-layout'
 
-export default function LocaleLayout({
+export default function LocaleLayoutWrapper({
   children,
   params,
 }: {
@@ -10,7 +10,7 @@ export default function LocaleLayout({
   params: Promise<{ locale: string }>
 }) {
   return (
-    <Suspense fallback={loading()}>
+    <Suspense fallback={<Loading />}>
       <LocaleLayout params={params}>{children}</LocaleLayout>
     </Suspense>
   )
